@@ -1,0 +1,31 @@
+
+
+<div><h4>Great job @USERNAME</h4></div>
+<div>
+	
+	<%if @incompleted != []%>
+		<p>you completed these tasks this pomodoro:</p>
+		
+		<div>
+			<%@completed.each do |this|%>
+				<p>&nbsp;<%=this.name%></p>
+			<%end%>
+		</div>
+		
+		<p>Let's finish these on the next one!</p>
+		
+		<div>
+			<%@incompleted.each do |this|%>
+				<p>&nbsp;<%=this.name%></p>
+			<%end%>
+		</div>
+		
+		<div id="hf">✋</div>
+		
+		<div id="keep"><a href="/lists/<%=@list.id%>">keep working!</a></div>
+	<%else%>
+		<h1>Congratulations on finishing <%=@list.name%></h1>
+		
+		<a href="/"><p>Work on another list?</p></a>
+	<%end%>
+</div>

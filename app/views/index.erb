@@ -1,0 +1,29 @@
+	<p><%=@name%></p>
+		<div class="container">
+		
+		<% @lists.each do |list|%>
+			
+			<a href="/lists/<%=list.id%>">
+			
+				<%if list.done? == true%>
+					<%=list.name%> ✔️ &nbsp;&nbsp;
+				<%else%>
+				<p>	
+					<div class ="lists" id= "<%=list.id%>"><h2><%=list.name%></h2></div>
+					<div class= "delete"><a href="/lists/<%=list.id%>/delete">delete</a></div></p>
+				<%end%>
+			
+			</a>
+		
+		<%end%>
+		</div>
+		
+
+
+	<div>
+		<form method="POST" action "/">
+			<input type= "text" name = "listname">
+			<input type="submit">
+		</form>
+	</div>
+
